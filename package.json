@@ -1,0 +1,86 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "react-native-baidu-map@github:lovebing/react-native-baidu-map",
+        "scope": null,
+        "escapedName": "react-native-baidu-map",
+        "name": "react-native-baidu-map",
+        "rawSpec": "github:lovebing/react-native-baidu-map",
+        "spec": "github:lovebing/react-native-baidu-map",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:lovebing/react-native-baidu-map.git",
+          "sshUrl": "git+ssh://git@github.com/lovebing/react-native-baidu-map.git",
+          "httpsUrl": "git+https://github.com/lovebing/react-native-baidu-map.git",
+          "gitUrl": "git://github.com/lovebing/react-native-baidu-map.git",
+          "shortcut": "github:lovebing/react-native-baidu-map",
+          "directUrl": "https://raw.githubusercontent.com/lovebing/react-native-baidu-map/master/package.json"
+        }
+      },
+      "E:\\Martian\\Apps\\LockSetting"
+    ]
+  ],
+  "_from": "lovebing/react-native-baidu-map",
+  "_id": "react-native-baidu-map@0.6.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react-native-baidu-map",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "react-native-baidu-map@github:lovebing/react-native-baidu-map",
+    "scope": null,
+    "escapedName": "react-native-baidu-map",
+    "name": "react-native-baidu-map",
+    "rawSpec": "github:lovebing/react-native-baidu-map",
+    "spec": "github:lovebing/react-native-baidu-map",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:lovebing/react-native-baidu-map.git",
+      "sshUrl": "git+ssh://git@github.com/lovebing/react-native-baidu-map.git",
+      "httpsUrl": "git+https://github.com/lovebing/react-native-baidu-map.git",
+      "gitUrl": "git://github.com/lovebing/react-native-baidu-map.git",
+      "shortcut": "github:lovebing/react-native-baidu-map",
+      "directUrl": "https://raw.githubusercontent.com/lovebing/react-native-baidu-map/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git://github.com/lovebing/react-native-baidu-map.git#9950d8c028ba91f13cc4f9d04b28da5ac217901d",
+  "_shasum": "4cb8329272b3ce16076765096de22ff93614891b",
+  "_shrinkwrap": null,
+  "_spec": "react-native-baidu-map@github:lovebing/react-native-baidu-map",
+  "_where": "E:\\Martian\\Apps\\LockSetting",
+  "author": {
+    "name": "lovebing"
+  },
+  "bugs": {
+    "url": "https://github.com/lovebing/react-native-baidu-map/issues"
+  },
+  "dependencies": {},
+  "description": "Baidu Map SDK modules and view for React Native(Android & IOS), support react native 0.40+.",
+  "devDependencies": {},
+  "gitHead": "9950d8c028ba91f13cc4f9d04b28da5ac217901d",
+  "homepage": "https://github.com/lovebing/react-native-baidu-map#readme",
+  "keywords": [
+    "Baidu Map",
+    "React Native"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "react-native-baidu-map",
+  "optionalDependencies": {},
+  "readme": "# react-native-baidu-map [![npm version](https://img.shields.io/npm/v/react-native-baidu-map.svg?style=flat)](https://www.npmjs.com/package/react-native-baidu-map)\r\n\r\nBaidu Map SDK modules and view for React Native(Android & IOS), support react native 0.40+\r\n\r\n百度地图 React Native 模块，支持 react native 0.40+\r\n\r\n![Android](https://raw.githubusercontent.com/lovebing/react-native-baidu-map/master/images/android.jpg)\r\n![IOS](https://raw.githubusercontent.com/lovebing/react-native-baidu-map/master/images/ios.jpg)\r\n\r\n### Install 安装\r\n    npm install react-native-baidu-map --save\r\n### Import 导入\r\n\r\n#### Android Studio\r\n- settings.gradle `\r\ninclude ':react-native-baidu-map'\r\nproject(':react-native-baidu-map').projectDir = new File(settingsDir, '../node_modules/react-native-baidu-map/android')`\r\n\r\n- build.gradle `compile project(':react-native-baidu-map')`\r\n\r\n- MainApplication`new BaiduMapPackage(getApplicationContext())`\r\n- AndroidMainifest.xml `<meta-data\r\n            android:name=\"com.baidu.lbsapi.API_KEY\" android:value=\"xx\"/>`\r\n\r\n#### Xcode\r\n- Project navigator->Libraries->Add Files to 选择 react-native-baidu-map/ios/RCTBaiduMap.xcodeproj\r\n- Project navigator->Build Phases->Link Binary With Libraries 加入 libRCTBaiduMap.a\r\n- Project navigator->Build Settings->Search Paths， Framework search paths 添加 react-native-baidu-map/ios/lib，Header search paths 添加 react-native-baidu-map/ios/RCTBaiduMap\r\n- 添加依赖, react-native-baidu-map/ios/lib 下的全部 framwordk， CoreLocation.framework和QuartzCore.framework、OpenGLES.framework、SystemConfiguration.framework、CoreGraphics.framework、Security.framework、libsqlite3.0.tbd（xcode7以前为 libsqlite3.0.dylib）、CoreTelephony.framework 、libstdc++.6.0.9.tbd（xcode7以前为libstdc++.6.0.9.dylib）\r\n- 添加 BaiduMapAPI_Map.framework/Resources/mapapi.bundle\r\n\r\n- 其它一些注意事项可参考百度地图LBS文档\r\n\r\n##### AppDelegate.m init 初始化\r\n    #import \"RCTBaiduMapViewManager.h\"\r\n    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions\r\n    {\r\n        ...\r\n        [RCTBaiduMapViewManager initSDK:@\"api key\"];\r\n        ...\r\n    }\r\n\r\n### Usage 使用方法\r\n\r\n    import { MapView, MapTypes, MapModule, Geolocation } from 'react-native-baidu-map\r\n\r\n#### MapView Props 属性\r\n| Name                    | Type  | Default  | Extra\r\n| ----------------------- |:-----:| :-------:| -------\r\n| zoomControlsVisible     | bool  | true     | Android only\r\n| trafficEnabled          | bool  | false    |\r\n| baiduHeatMapEnabled     | bool  | false    |\r\n| mapType                 | number| 1        |\r\n| zoom                    | number| 10       |\r\n| center                  | object| null     | {latitude: 0, longitude: 0}\r\n| marker                  | object| null     | {latitude: 0, longitude: 0, title: ''}\r\n| markers                 | array | []       | [marker, maker]\r\n| onMapStatusChangeStart  | func  | undefined| Android only\r\n| onMapStatusChange       | func  | undefined|\r\n| onMapStatusChangeFinish | func  | undefined| Android only\r\n| onMapLoaded             | func  | undefined|\r\n| onMapClick              | func  | undefined|\r\n| onMapDoubleClick        | func  | undefined|\r\n| onMarkerClick           | func  | undefined|\r\n| onMapPoiClick           | func  | undefined|\r\n\r\n#### MapModule Methods (Deprecated)\r\n    setMarker(double lat, double lng)\r\n    setMapType(int mapType)\r\n    moveToCenter(double lat, double lng, float zoom)\r\n    Promise reverseGeoCode(double lat, double lng)\r\n    Promise reverseGeoCodeGPS(double lat, double lng)\r\n    Promise geocode(String city, String addr),\r\n    Promise getCurrentPosition()\r\n\r\n#### Geolocation Methods\r\n\r\n| Method                    | Result\r\n| ------------------------- | -------\r\n| Promise reverseGeoCode(double lat, double lng) | `{\"address\": \"\", \"province\": \"\", \"cityCode\": \"\", \"city\": \"\", \"district\": \"\", \"streetName\": \"\", \"streetNumber\": \"\"}`\r\n| Promise reverseGeoCodeGPS(double lat, double lng) |  `{\"address\": \"\", \"province\": \"\", \"cityCode\": \"\", \"city\": \"\", \"district\": \"\", \"streetName\": \"\", \"streetNumber\": \"\"}`\r\n| Promise geocode(String city, String addr) | {\"latitude\": 0.0, \"longitude\": 0.0}\r\n| Promise getCurrentPosition() | IOS: `{\"latitude\": 0.0, \"longitude\": 0.0, \"address\": \"\", \"province\": \"\", \"cityCode\": \"\", \"city\": \"\", \"district\": \"\", \"streetName\": \"\", \"streetNumber\": \"\"}` Android: `{\"latitude\": 0.0, \"longitude\": 0.0, \"direction\": -1, \"altitude\": 0.0, \"radius\": 0.0, \"address\": \"\", \"countryCode\": \"\", \"country\": \"\", \"province\": \"\", \"cityCode\": \"\", \"city\": \"\", \"district\": \"\", \"street\": \"\", \"streetNumber\": \"\", \"buildingId\": \"\", \"buildingName\": \"\"}`\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovebing/react-native-baidu-map.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.6.0"
+}
