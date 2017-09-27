@@ -54,7 +54,7 @@
     "map"
   ],
   "license": "MIT",
-  "main": "main.js",
+  "main": "index.js",
   "maintainers": [
     {
       "email": "chinawraith@163.com",
