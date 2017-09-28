@@ -244,8 +244,6 @@ public class GeolocationModule extends BaseModule
 
     @Override
     public void onGetPoiResult(PoiResult result) {
-     Toast.makeText(this.getReactApplicationContext().getApplicationContext(), "onGetPoiResult",
-                  Toast.LENGTH_SHORT).show();
         WritableMap params = Arguments.createMap();
         if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
             params.putInt("errcode", -1);
