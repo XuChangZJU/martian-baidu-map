@@ -170,6 +170,9 @@ public class GeolocationModule extends BaseModule
         if (map.hasKey("keyword")){
             option.keyword(map.getString("keyword"));
         }
+        if (map.hasKey("city")){
+            option.keyword(map.getString("city"));
+        }
         if (map.hasKey("sortMode")) {
             option.sortType("nearToFar".equals(map.getString("sortMode")) ? PoiSortType.distance_from_near_to_far : PoiSortType.comprehensive);
         }

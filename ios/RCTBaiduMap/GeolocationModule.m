@@ -82,6 +82,9 @@ RCT_EXPORT_METHOD(poiSearch:(CLLocationCoordinate2D) pt option: (NSDictionary*) 
     if ( [opt valueForKey: @"keyword"] != nil){
         options.keyword = [opt valueForKey : @"keyword"];
     }
+    if ( [opt valueForKey: @"city"] != nil){
+        options.keyword = [opt valueForKey : @"city"];
+    }
     if ( [opt valueForKey: @"sortMode"] != nil) {
         if ([@"nearToFar" isEqualToString:[opt valueForKey: @"sortMode"]]){
             options.sortType = BMK_POI_SORT_BY_DISTANCE;
