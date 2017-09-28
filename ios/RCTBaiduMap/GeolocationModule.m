@@ -74,16 +74,13 @@ RCT_EXPORT_METHOD(reverseGeoCode:(double)lat lng:(double)lng) {
 RCT_EXPORT_METHOD(poiSearch:(CLLocationCoordinate2D) pt option: (NSDictionary*) opt)
 {
     [self getPoiSearch].delegate = self;
-
-//    BMKPoiSearch* _searcher = [[BMKPoiSearch alloc] init];
-
+    
+    //    BMKPoiSearch* _searcher = [[BMKPoiSearch alloc] init];
+    
     BMKNearbySearchOption * options = [[BMKNearbySearchOption alloc] init];
     options.location =pt;
     if ( [opt valueForKey: @"keyword"] != nil){
         options.keyword = [opt valueForKey : @"keyword"];
-    }
-    if ( [opt valueForKey: @"city"] != nil){
-        options.keyword = [opt valueForKey : @"city"];
     }
     if ( [opt valueForKey: @"sortMode"] != nil) {
         if ([@"nearToFar" isEqualToString:[opt valueForKey: @"sortMode"]]){
@@ -158,7 +155,7 @@ RCT_EXPORT_METHOD(reverseGeoCodeGPS:(double)lat lng:(double)lng) {
 }
 - (void)onGetPoiResult:(BMKPoiSearch*)searcher result:(BMKPoiResult*)result errorCode:(BMKSearchErrorCode)error
 {
-
+    
     NSMutableDictionary *body = [self getEmptyBody];
     
     if (error == BMK_SEARCH_NO_ERROR) {
@@ -272,7 +269,13 @@ RCT_EXPORT_METHOD(reverseGeoCodeGPS:(double)lat lng:(double)lng) {
     }
     return ret;
 }
-
++ (NSDictionary *)_convertCLLocation:(CLLocationCoordinate2D)location
+{
+    NSMutableDictionary* ret = [NSMutableDictionary dictionary];
+    [ret setObject:@(location.latitude) forKey:@"latitude" ];
+    [ret setObject:@(location.longitude) forKey:@"longitude" ];
+    return ret;
+}
 + (NSDictionary *)_convertPoi: (BMKPoiInfo*) info
 {
     NSMutableDictionary* dict = [NSMutableDictionary dictionary];
@@ -283,8 +286,9 @@ RCT_EXPORT_METHOD(reverseGeoCodeGPS:(double)lat lng:(double)lng) {
     dict[@"phoneNum"] = info.phone;
     dict[@"postCode"] = info.postcode;
     dict[@"type"] = @(info.epoitype);
-
+    dict[@"location"] = [GeolocationModule _convertCLLocation:info.pt];
     return dict;
 }
 
 @end
+
